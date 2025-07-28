@@ -4,7 +4,7 @@ This repository contains the source code for the Didymus desktop application, bu
 
 ## Overview
 
-Didymus is a modern desktop application designed to [briefly describe the purpose of the application here]. It leverages the power of web technologies for a rich user interface and the Electron framework for cross-platform compatibility.
+Didymus is a modern desktop application designed to assist in liturgical presentations by automatically scrolling scripture or service text in sync with spoken Malayalam. It combines the power of web technologies to deliver a sleek, responsive user interface, while utilizing the Electron framework to ensure seamless cross-platform compatibility across Windows, macOS, and Linux.
 
 ## Getting Started
 
