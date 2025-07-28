@@ -90,4 +90,4 @@ After a successful build, the `/dist` directory will contain the distributable f
 
 - <b>For other platforms (macOS, Linux):</b> You will find the corresponding application bundles (e.g., `.dmg`, `.AppImage`).
 
-To release the application, distribute the appropriate installer or portable executable to your users. The /out directory is an intermediate build artifact used by Electron and is not intended for distribution.
+To release the application, distribute the appropriate installer or portable executable to your users. The `/out` directory is an intermediate build artifact used by Electron and is not intended for distribution.
