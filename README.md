@@ -34,14 +34,13 @@ It is highly recommended to use a version manager like nvm ([nvm-windows](https:
 
 3. ### Build Environment Workaround (Windows Only):
 
-   Due to a known issue with the `electron-builder` dependency resolution on Windows, a manual step is required to prevent build failures. The build process may incorrectly search for macOS-specific native modules.
-   To resolve this, create an empty folder at the following path within the project directory:
+   On Windows, `electron-builder` may incorrectly try to resolve macOS-specific native modules. To avoid this:
 
    ```bash
    mkdir node_modules/@img/sharp-darwin-arm64
    ```
 
-This workaround satisfies the dependency check and allows the build to proceed correctly on a Windows host machine.
+   This creates a placeholder directory to satisfy the dependency check and allows builds to succeed on Windows.
 
 ## Development
 
