@@ -1,0 +1,13 @@
+appId: com.didymus.app
+productName: Didymus
+copyright: Copyright © 2025 Didymus Team
+
+win:
+  target: ["dir", "portable", "zip"]
+  icon: "public/icon.png"
+mac:
+  target: ["dir", "dmg", "zip"]
+  icon: "public/icon.png"
+linux:
+  target: ["dir", "appimage", "zip"]
+  icon: "public/icon.png"
