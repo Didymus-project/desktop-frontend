@@ -19,14 +19,25 @@ export default function LoginPage() {
     setIsSubmitting(true);
     setError(null);
     setMessage(null);
+
+    // --- THIS IS THE FIX ---
+    // Add the 'options' object with 'queryParams' to force the account selector
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
+      options: {
+        queryParams: {
+          prompt: "select_account",
+        },
+      },
     });
+    // --- END FIX ---
+
     if (error) {
       console.error("Error signing in with Google:", error);
       setError(error.message);
+      setIsSubmitting(false); // Make sure to stop submitting on error
     }
-    // No need to setIsSubmitting(false) here, as navigation will occur or error is shown
+    // On success, the AuthProvider will detect the new session and redirect.
   };
 
   const handleEmailSignIn = async (e: React.FormEvent) => {
@@ -83,7 +94,6 @@ export default function LoginPage() {
             {error}
           </div>
         )}
-        {/* Success/Info Message */}
         {message && (
           <div className="p-3 text-sm text-blue-700 bg-blue-100 border border-blue-300 rounded-md dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700">
             {message}
@@ -141,8 +151,17 @@ export default function LoginPage() {
           </button>
         </form>
 
+        <div className="text-sm text-right">
+          <Link
+            href="/forgot-password"
+            className="font-medium text-[var(--primary)] hover:underline"
+          >
+            Forgot password?
+          </Link>
+        </div>
+
         {/* Divider */}
-        <div className="relative flex items-center justify-center my-6">
+        <div className="relative flex items-center justify-center my-4">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-[var(--border)]"></div>
           </div>
@@ -186,15 +205,6 @@ export default function LoginPage() {
           </svg>
           {isSubmitting ? "Processing..." : "Sign in with Google"}
         </button>
-
-        <div className="text-sm text-right">
-          <Link
-            href="/forgot-password"
-            className="font-medium text-[var(--primary)] hover:underline"
-          >
-            Forgot password?
-          </Link>
-        </div>
 
         {/* Link to Sign Up */}
         <p className="text-sm text-center text-[var(--foreground-secondary)]">
