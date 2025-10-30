@@ -13,7 +13,7 @@ Follow these instructions to set up the development environment and build the ap
 ## Prerequisites
 
 - Node.js: `v22.17.1`
-- npm: `v11.5.1`
+- npm: `v11.6.1`
 
 It is highly recommended to use a version manager like nvm ([nvm-windows](https://github.com/coreybutler/nvm-windows)/[nvm](https://github.com/nvm-sh/nvm)) or [Volta](https://github.com/volta-cli/volta) to ensure you are using the correct Node.js and npm versions.
 
