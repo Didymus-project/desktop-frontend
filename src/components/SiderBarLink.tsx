@@ -13,7 +13,7 @@ export default function SidebarLink({ href, text }: SidebarLinkProps) {
   const isActive = pathname === href;
 
   return (
-    <li>
+    <li className="list-none">
       <Link
         href={href}
         className={`flex items-center p-3 rounded-lg transition-colors duration-200 ${

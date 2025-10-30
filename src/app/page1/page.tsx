@@ -1,19 +1,36 @@
 "use client";
 
 import useTheme from "@/hooks/useTheme";
+import { useAuthStore } from "@/store/authStore";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Page1() {
   const { theme } = useTheme();
+  const { user, loading } = useAuthStore();
+  const router = useRouter();
 
+  useEffect(() => {
+    // If not loading and no user, redirect to login
+    if (!loading && !user) {
+      router.push("/login");
+    }
+  }, [user, loading, router]);
+
+  // Optionally show a loading state while checking auth
+  if (loading || !user) {
+    return <div>Loading or redirecting...</div>;
+  }
+
+  // Original page content if user is authenticated
   return (
     <div className="container mx-auto p-4 md:p-8">
       <div className="text-center">
         <h1 className="text-4xl font-bold text-[var(--foreground)] mb-4">
-          Theme Switcher Demo
+          Protected Page 1 - Theme Demo
         </h1>
         <p className="text-lg text-[var(--foreground-secondary)] mb-8">
-          This page demonstrates the dynamic theme switching. The current theme
-          is:
+          You are logged in! Current theme is:
           <span className="font-bold text-[var(--primary)] ml-2 capitalize">
             {theme}
           </span>

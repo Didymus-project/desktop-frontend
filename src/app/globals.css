@@ -13,6 +13,10 @@
   --primary-hover: #1c5cd6;
   --primary-disabled: #afcbf9;
 
+  --secondary: #7c3aed;
+  --secondary-hover: #5b21b6;
+  --secondary-disabled: #c4b5fd;
+
   --success: #16a34a;
   --error: #dc2626;
   --warning: #f59e0b;
@@ -31,6 +35,10 @@
   --foreground: #f5f7fa;
   --foreground-secondary: #9ca3af;
   --border: #2a2f37;
+
+  --secondary: #a78bfa;
+  --secondary-hover: #7c3aed;
+  --secondary-disabled: #c4b5fd;
 
   --error: #ff5c5c;
   --success: #22c55e;
